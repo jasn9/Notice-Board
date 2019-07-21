@@ -1,0 +1,27 @@
+
+{% extends 'central/layout.html' %}
+
+
+{% block body %}
+    
+<body> 
+    <div class="row">
+        
+        <div class="container-fluid">
+            
+            <div class="col-sm-7 ">
+                <h4>
+                        {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                        {% endfor %}
+                        {% endif %}
+                </h4>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+{% endblock %}

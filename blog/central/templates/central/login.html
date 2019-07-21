@@ -1,0 +1,43 @@
+
+{% extends 'central/layout.html'  %}
+
+
+{% block body %}  
+<body>  
+<div id="maindiv" class="col-sm-10" style="background-color:white" >
+<div class="container-fluid">
+ <div class="row">
+   <div class="col-sm-10">
+       <h2>Sign In</h2>
+       <hr>
+       {% if error_message %}
+       <div class="alert alert-danger col-sm-11">
+           {{ error_message }}
+       </div> 
+       {% else %}
+       <div class="alert alert-success col-sm-11">
+            Enter username and password
+        </div> 
+        
+        {% endif %}
+        <br>
+   </div>
+    <form action="{% url 'central:user_login' %}" method="POST">
+    {% csrf_token %}
+    <div class="col-sm-offset-4 col-sm-5" >
+    <div class="form-group" >
+        <div class="input-group input-lg col-sm-11">
+            <input  class="form-control input-lg" type="text" name="username" id="username" value="" placeholder="username"><br><br><br>
+            <input  class="form-control input-lg" type="password" name="password" id="password" value="" placeholder="password"><br><br><br>
+        
+            <input class="btn btn-primary " type="submit" name="submit" value="Sign In"> or <a class="btn btn-default" href="{% url 'central:register' %}">Sign Up</a> 
+        </div>
+    </div>
+    </div>
+    </form>
+ </div>
+
+</div>
+</div>
+</body>
+{% endblock %}

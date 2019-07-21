@@ -1,0 +1,83 @@
+
+body {
+    background-color: #ffffff;
+}
+
+.div_1 {
+    position: absolute;
+    top:300px;
+    right:800px;
+    font-size: 40px;
+    width:650px;
+    height:10px;
+    color:#4B0082;
+}
+
+.form_1 {
+    position: absolute;
+  top: 200px;
+  right: 100px;
+  width: 400px;
+  height: 350px;
+  border: 3px solid #73AD21;
+}
+
+.form_2 {
+
+    position: absolute;
+  top: 200px;
+  right: 50px;
+  width: 400px;
+  height: 350px;
+  border: 3px solid #73AD21;
+
+}
+
+.input_submit {
+
+    background-color: #73AD21;
+    margin: 10px 50px;
+    width: 300px;
+    height: 50px;
+}
+
+ul {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+
+}
+
+input {
+   
+    width: 300px;
+    height: 40px;
+    margin: 20px 40px;
+    padding: 10px 10px;
+}
+
+li {
+    float:left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #111;
+
+}
+
+/* for user to know which class he or she on */
+
+.active{
+    background-color: #4CAF50;
+}

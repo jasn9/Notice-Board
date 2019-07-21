@@ -1,0 +1,66 @@
+{% extends 'central/layout.html' %}
+{% block body %}
+<body>
+    <div class="container-fluid">
+        <div class="row">
+                
+            <div class="col-sm-12">
+                <h2>
+                    Profile <strong>{{ user.username }}</strong>
+                    <hr>
+                </h2>
+            </div>
+            <div class="col-sm-6 ">
+                    <h4>
+                            {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}" role="alert">{{ message }}</div>
+                            {% endfor %}
+                            {% else %}
+                            <div class="alert alert-success" role="alert">Hi you can even update your profile!</div>
+                            {% endif %}
+                    </h4>
+            </div>
+            <div class="col-sm-6 col-sm-offset-2">
+                <form class="form-horizontal" action="{% url 'central:update' %}" method="POST">
+                    {% csrf_token %}
+                  <div class="form-group">  
+                    <label for="username" class="control-label col-sm-3" ><h4>Username<strong style="color:red;">*</strong></h4></label>
+                    <div class="col-sm-8">
+                    <input type="text" id="username" name="username" value="{{ profile.username }}" class="form-control input-lg" disabled>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="control-label col-sm-3" ><h4>Email Address<strong style="color:red;">*</strong></h4></label>
+                    <div class="col-sm-8"><input type="text" id="email" name="email" value="{{ user.email }}" class="form-control input-lg" required></div>
+                </div>
+                <div class="form-group">
+                    <label for="name" class="control-label col-sm-3" ><h4>Name</h4></label>
+                    <div class="col-sm-8"><input type="text" id="name" name="name" value="{{ profile.full_name }}" class="form-control input-lg" ></div>
+                </div>
+                <div class="form-group">
+                    <label for="affilation" class="control-label col-sm-3" ><h4>Affilation</h4></label>
+                    <div class="col-sm-8"><input type="text" id="affilation" name="affilation" value="{{ profile.affilation }}" class="form-control input-lg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="birthyear" class="control-label col-sm-3" ><h4>Birth Year<strong style="color:red;">*</strong></h4></label>
+                    <div class="col-sm-8"><input type="text" id="birthyear" name ="birth_year" value="{{ profile.birth_year }}" class="form-control input-lg" required></div>
+                </div>
+                <div class="form-group">
+                    <label for="country" class="control-label col-sm-3" ><h4>Country</h4></label>
+                    <div class="col-sm-8"><input type="text" id="country" name="country" value="{{ profile.country }}" class="form-control input-lg"></div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="control-label col-sm-3" ><h4>Address</h4></label>
+                    <div class="col-sm-8"><input type="text" id="address" name="address" value="{{ profile.address }}" class="form-control input-lg" ></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-8 col-sm-offset-3" ><input class="btn btn-primary" type="submit" value="Update"></div>
+                </div>
+                                 
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}
