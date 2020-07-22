@@ -1,0 +1,22 @@
+
+{% extends 'central/layout.html' %}
+
+{% block body %}
+<body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2> <strong> My Boards </strong> </h2>
+                    <hr>
+                </div>
+            </div>
+            {% for board in boards %}
+                <div class="row">
+                    <div class="col-sm-12">
+                        <a href={% url 'central:get_board' board.board_id %}>{{ board.topic }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</body>
+{% endblock %}
